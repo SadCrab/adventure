@@ -1,10 +1,10 @@
 from data import locations
 
 directions = {
-    (0, -1): "north",
-    (1, 0): "east",
-    (0, 1): "south",
-    (-1, 0): "west",
+    'west': (-1, 0),
+    'east': (1, 0),
+    'north': (0, -1),
+    'south': (0, 1),
 }
 
 position = (0, 0)
@@ -17,9 +17,9 @@ while True:
     for k, v in directions.iteritems():
         possible_position = (position[0] + v[0], position[1] + v[1])
         possible_location = locations.get(possible_position)
-        if possible_position:
+        if possible_location:
             print 'to the %s is a %s' % (k, possible_location)
             valid_directions[k] = possible_position
 
-    direction = raw_input('Which direction do you want to go?\n')
+    direction = raw_input('which direction do you want to go?\n')
     position = valid_directions[direction]
